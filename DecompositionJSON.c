@@ -113,7 +113,7 @@ int main()
     printf("\n");
 
     FILE* fp;
-    char c;
+    char c = '0';
     char* str = NULL;
     int size = 0;
     if ((fp = fopen("test.txt", "r")) == NULL)  /*прверка наличия файла*/
