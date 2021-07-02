@@ -130,11 +130,11 @@ int main()
                 str[i] = c;
                 i++;
             }
-            str[size] = '\0';   /*спец. символ окончания стркои*/
+            str[size] = '\0';   /*спец. символ окончания строки*/
             printf("Json-obj from File \t%s\n", str);
             Parse(str, size);
         }
-        free(str);   /*освобождение памяти и снятия указателя*/
+        free(str);   /*освобождение памяти и снятие указателя*/
         str = NULL;
         fclose(fp);
     }
