@@ -1,4 +1,11 @@
-﻿#include <stdio.h>  /*для printf()*/
+/*
+*   01/07/2021
+*   Обновлена программа разложения
+*   Добавлена конвертация char в int
+*   Добавлена загрузка Json файла и его обработка
+*/
+
+#include <stdio.h>  /*для printf()*/
 #include <malloc.h> /*для malloc()*/
 #pragma warning(disable : 4996) /*компилятор с++ считает функцию fopen устаревшей*/
 
@@ -36,7 +43,7 @@ void Parse(char* allText, int size)
     char flag = 0, integer = 0;
     for (i; i < size; i++)  /*проход по символам массива (строки)*/
     {
-        if (flag == 1)  /*в данному случае идет работа со строкой*/
+        if (flag == 1)  /*в данном случае идет работа со строкой*/
         {
             if (allText[i] == '"')
             {
