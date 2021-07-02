@@ -80,12 +80,18 @@ void Parse(char* allText, int size)
                 break;
             case '"':
                 flag = TRUE;   /*начало строки*/
+                integer = FALSE;
+                break;
             case '{':
             case '[':
                 level++;
+                integer = FALSE;
+                break;
             case '}':
             case ']':
                 level--;
+                integer = FALSE;
+                break;
             default:
                 if (integer == 1)   /*число закончилось, пришел другой символ*/
                 {
@@ -130,11 +136,11 @@ int main()
                 str[i] = c;
                 i++;
             }
-            str[size] = '\0';   /*спец. символ окончания строки*/
+            str[size] = '\0';   /*спец. символ окончания стркои*/
             printf("Json-obj from File \t%s\n", str);
             Parse(str, size);
         }
-        free(str);   /*освобождение памяти и снятие указателя*/
+        free(str);  /*освобождение памяти и снятия указателя*/
         str = NULL;
         fclose(fp);
     }
