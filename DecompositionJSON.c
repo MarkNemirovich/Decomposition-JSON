@@ -79,7 +79,7 @@ void Parse(char* allText, int size)
                 }
                 break;
             case '"':
-                flag = 1;   /*начало строки*/
+                flag = TRUE;   /*начало строки*/
             case '{':
             case '[':
                 level++;
