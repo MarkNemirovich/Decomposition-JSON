@@ -137,8 +137,9 @@ int main()
             printf("Json-obj from File \t%s\n", str);
             Parse(str, size);
         }
+        free(str);
+        str = NULL;
         fclose(fp);
     }
-    free(str);
     return 0;
 }
