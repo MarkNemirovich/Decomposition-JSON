@@ -134,7 +134,7 @@ int main()
             printf("Json-obj from File \t%s\n", str);
             Parse(str, size);
         }
-        free(str);
+        free(str);   /*освобождение памяти и снятия указателя*/
         str = NULL;
         fclose(fp);
     }
