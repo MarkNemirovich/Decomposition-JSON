@@ -116,22 +116,19 @@ int main()
     }
     else
     {
-        while ((c = getc(fp)) != EOF)   /*посчитать размер файла*/
+        while (getc(fp) != EOF)   /*посчитать размер файла*/
         {
             size++;
         }
         rewind(fp); /*вернуться к левому элементу файла*/
-        str = (char*)malloc(size + 1);
+        str = (char*)malloc(size + 1); /*резерв для последнего места в строке для спец. символа*/
         if (str && size > 0)    /*проверка на наличие выделенной памяти и не пустой ли был файл*/
         {
             int i = 0;
-            while ((c = getc(fp)) != EOF)
+            while (i < size)
             {
-                if (i < size)   /*резерв для последнего места в строке для спец. символа*/
-                {
-                    str[i] = c;
-                    i++;
-                }
+                str[i] = c;
+                i++;
             }
             str[size] = '\0';   /*спец. символ окончания стркои*/
             printf("Json-obj from File \t%s\n", str);
