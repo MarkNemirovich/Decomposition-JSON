@@ -9,8 +9,8 @@
 #include <malloc.h> /*для malloc()*/
 #pragma warning(disable : 4996) /*компилятор с++ считает функцию fopen устаревшей*/
 
-#define TRUE 1;
-#define FALSE 0;
+#define TRUE 1
+#define FALSE 0
 
 char example[] = R"({ "obj1": { "Msg1": "First example : 20, 3]", "val1" : 1337, "val3" : true, "obj2" : { "val22": 5 } } })";
 int level = 0;
@@ -43,7 +43,7 @@ void Parse(char* allText, int size)
     char flag = 0, integer = 0;
     for (i; i < size; i++)  /*проход по символам массива (строки)*/
     {
-        if (flag == 1)  /*в данном случае идет работа со строкой*/
+        if (flag == TRUE)  /*в данном случае идет работа со строкой*/
         {
             if (allText[i] == '"')
             {
@@ -68,7 +68,7 @@ void Parse(char* allText, int size)
             case '7':
             case '8':
             case '9':
-                if (integer == 1)
+                if (integer == TRUE)
                 {
                     continue;   /*идёт продолжение числа*/
                 }
@@ -93,7 +93,7 @@ void Parse(char* allText, int size)
                 integer = FALSE;
                 break;
             default:
-                if (integer == 1)   /*число закончилось, пришел другой символ*/
+                if (integer == TRUE)   /*число закончилось, пришел другой символ*/
                 {
                     int number = CharToInt(allText, start, i);
                     printf("Number %-5d is at lvl %d\n", number, level);    /*на выводе не строка, а целочисленное значение*/
